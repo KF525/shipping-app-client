@@ -2,11 +2,12 @@ class Order < ActiveRecord::Base
   has_many :items, class_name: "LineItem"
   has_one :address
   has_one :credit_card
+  has_one :shipping
   validates :number, uniqueness: true
   before_create :set_number
 
   def total
-    Money.new items.sum(:total_cents)
+    Money.new items.sum(:total_cents) #include shipping cost if selected
   end
 
   private

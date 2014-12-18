@@ -13,3 +13,21 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+  $(".shipping-choice").click(function(event) {
+    event.preventDefault();
+    var $option = $(this).parents(".shipping-choice");
+    //var $total = $(this).parents(".total-price");
+    $.ajax({
+      //type: "POST",
+      //url: $??.attr("action"),
+      success: function() {
+        $option.addClass("chosen");
+      },
+      error: function() {
+        alert("ERROR!!");
+      }
+    });
+  });
+});
