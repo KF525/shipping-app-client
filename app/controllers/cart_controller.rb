@@ -7,8 +7,7 @@ class CartController < ApplicationController
   end
 
   def show
-    @weight = total_weight
-    raise
-    response = HTTParty.get("http://localhost:3000/shipments/new?shipment[city]=#{current_order.address.city}&shipment[state]=#{current_order.address.state}&shipment[postal_code]=#{current_order.address.postal_code}&shipment[weight]=#{current_order.total_weight}").parsed_response
+    product_weight = current_order.items.inject { |sum, item| sum + item.product.weight }
+    @response = HTTParty.get("http://localhost:3000/shipments/new?shipment[city]=#{current_order.address.city}&shipment[state]=#{current_order.address.state}&shipment[postal_code]=#{current_order.address.postal_code}&shipment[weight]=#{current_order.product_weight}").parsed_response
   end
 end
