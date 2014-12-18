@@ -34,16 +34,19 @@
 
     <div class='col-lg-5'>
       <h4 class='brand'>Shipping Option</h4>
+      <%= f.fields_for :shipping do |ship| %>
       <div class='shipping-options well'>
         <span class='brand'>
           <% @shipping.each do |option| %>
             <div class="shipping-choice">
+              <%= ship.radio_button("cost", option["total_price"]) %>
               <%= option["service_name"] %>
               <strong>Price: <%= option["total_price"] / 100.0 %><%= option["currency"] %></strong>
             </div>
           <% end %>
         </span>
       </div>
+      <% end %>
       <%= f.submit "Checkout", class: "btn btn-success btn-block" %>
     </div>
 

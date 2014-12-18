@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
   end
 
   def update
+    raise
     order_form = OrderForm.new(current_order, params[:order])
     if order_form.save
       session[:order_number] = nil
