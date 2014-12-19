@@ -8,10 +8,14 @@ class Order < ActiveRecord::Base
   def total
     product_cost = Money.new items.sum(:total_cents)
     if self.address && self.shipping_service
-       product_cost + Money.new(Shipping.shipping_cost(self.address, product_weight, self.shipping_service))
+       product_cost + shipping_cost
     else
        product_cost
     end
+  end
+
+  def shipping_cost
+    Money.new(Shipping.shipping_cost(self.address, product_weight, self.shipping_service))
   end
 
   def product_weight

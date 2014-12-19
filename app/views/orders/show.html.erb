@@ -10,6 +10,10 @@
   <tbody>
   <tr>
     <td width="99%" colspan=2></td>
+    <td>Shipping: <%= @order.shipping_cost.format %></td>
+  </tr>
+  <tr>
+    <td width="99%" colspan=2></td>
     <td class='brand total-price'>Total:<%= @order.total.format %></td>
   </tr>
 </tbody>
