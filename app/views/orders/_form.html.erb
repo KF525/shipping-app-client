@@ -34,15 +34,15 @@
 
     <div class='col-lg-5'>
       <h4 class='brand'>Shipping Option</h4>
-      <div class='shipping-options well'>
         <span class='brand'>
+          <div class='shipping-options well'>
           <% @shipping.each do |option| %>
-            <div class="shipping-choice">
               <%= f.radio_button :shipping_service, option["service_name"] %>
               <%= option["service_name"] %>
               <strong>Price: <%= option["total_price"] / 100.0 %><%= option["currency"] %></strong>
-            </div>
+              <br />
           <% end %>
+          </div>
         </span>
     </div>
 
