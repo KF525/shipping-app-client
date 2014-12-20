@@ -15,21 +15,20 @@
 //= require_tree .
 
 
-// $(function() {
-//   //var radio_button = $(this).parents(".shipping-options");
-//   $(".shipping-options").click(function(event) {
-//     event.preventDefault();
-//     var $option = $(this).parents(".shipping-choice");
-//     //var $total = $(this).parents(".total-price");
-//     $.ajax({
-//       //type: "POST",
-//       //url: $??.attr("action"),
-//       success: function() {
-//         $option.addClass("chosen");
-//       },
-//       error: function() {
-//         alert("ERROR!!");
-//       }
-//     });
-//   });
-// });
+$(function() {
+  //var radio_button = $(this).parents(".shipping-options");
+  $(radio_button).click(function(event) {
+    event.preventDefault();
+    //var $total = $(this).parents(".total-price");
+    $.ajax({
+      //type: "POST",
+      //url: $??.attr("action"),
+      success: function() {
+        $option.addClass("chosen");
+      },
+      error: function() {
+        alert("ERROR!!");
+      }
+    });
+  });
+});

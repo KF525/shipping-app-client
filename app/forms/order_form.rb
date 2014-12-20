@@ -12,7 +12,7 @@ class OrderForm
   end
 
   def save
-    @order.save
+    @order.credit_card.save && @order.save
   end
 
 end
